@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dsad.diycode.UserInfoActivity">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+            <android.support.v7.widget.Toolbar
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:id="@+id/top_userinfo_bar"
+                android:layout_width="match_parent"
+                android:layout_height="180dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <at.markushi.ui.ActionView
+                        android:id="@+id/btn_userinfo_back"
+                        app:av_action="back"
+                        app:av_color="#fff"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp" />
+                    <RelativeLayout
+                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_below="@+id/btn_userinfo_back"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/img_userinfo_userhead"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                             />
+                        <TextView
+                            android:id="@+id/tv_userinfo_username"
+                            android:layout_toRightOf="@+id/img_userinfo_userhead"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="#fff"
+                            android:textSize="20sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <LinearLayout
+                            android:layout_below="@+id/tv_userinfo_username"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal"
+                            android:layout_toRightOf="@+id/img_userinfo_userhead"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/tv_userinfo_usertie"
+                                android:text="帖子"
+                                android:textColor="#fff"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/tv_userinfo_usercollect"
+                                android:text="收藏"
+                                android:textColor="#fff"
+                                android:layout_marginLeft="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/tv_userinfo_userabout"
+                                android:text="关注"
+                                android:textColor="#fff"
+                                android:layout_marginLeft="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv_userinfo_tisi"
+                android:text="没有帖子_(:зゝ∠)_"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_userinfo_view"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

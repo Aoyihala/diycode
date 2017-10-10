@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dsad.diycode.HomeActivity">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_home_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/top_home_bar"
+            android:background="@color/colorAppTheme"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <at.markushi.ui.ActionView
+                app:av_color="@color/colorMenuBtn"
+                android:id="@+id/btn_home_menu"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                />
+            <ImageView
+                android:src="@mipmap/logo_actionbar"
+                android:layout_width="wrap_content"
+                android:layout_height="31dp" />
+        </android.support.v7.widget.Toolbar>
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_home_tabs"
+            app:tabBackground="@color/colorAppTheme"
+            app:tabTextColor="@color/TabTextColor"
+            app:tabIndicatorColor="@color/TabTextColor"
+            app:tabSelectedTextColor="@color/TabTextSelectColor"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/colorAppTheme"/>
+    </android.support.design.widget.AppBarLayout>
+        <include
+            android:id="@+id/parent_view"
+            layout="@layout/content_layout"
+            />
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_home_addtopic"
+        app:layout_anchor="@id/parent_view"
+        android:src="@mipmap/ic_add_white"
+        app:layout_anchorGravity="bottom|center"
+        android:layout_marginBottom="20dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp" />
+
+</android.support.design.widget.CoordinatorLayout>

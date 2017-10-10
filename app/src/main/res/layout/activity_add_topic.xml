@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.example.dsad.diycode.AddTopicActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/top_addtopic_bar"
+        android:layout_width="match_parent"
+        android:background="@color/colorAppTheme"
+        android:layout_height="wrap_content">
+        <at.markushi.ui.ActionView
+            app:av_action="back"
+            android:id="@+id/btn_addtopic_back"
+            app:av_color="@color/colorMenuBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:text="创建话题"
+            android:id="@+id/tv_addtopic_title"
+            android:textColor="@color/colorMenuBtn"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="发布话题"
+            android:textColor="#000"
+            android:textSize="18sp" />
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spiner_topic_node1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp">
+        </android.support.v7.widget.AppCompatSpinner>
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spiner_topic_node2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp">
+        </android.support.v7.widget.AppCompatSpinner>
+    </LinearLayout>
+    <View
+        android:background="@color/colorMenuBtn"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+        <android.support.design.widget.TextInputEditText
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:id="@+id/edit_topic_title"
+            android:layout_marginBottom="5dp"
+            android:hint="\t输入标题"
+            android:singleLine="true"
+            android:background="@null"
+            android:layout_height="wrap_content" />
+    <View
+        android:background="@color/colorMenuBtn"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edit_topic_content"
+            android:hint="\t话题内容"
+            android:layout_marginTop="10dp"
+            android:gravity="start"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+</LinearLayout>

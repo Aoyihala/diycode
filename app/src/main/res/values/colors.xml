@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#303F90</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorAppTheme">#fcfcfc</color>
+    <color name="colorMenuBtn">#616161</color>
+    <color name="TabTextColor">#616161</color>
+    <color name="TabTextSelectColor">#000</color>
+    <color name="TopicItemNodeTextColor">#ff4343</color>
+    <color name="TopicItemNodeColor">#ff8b8b</color>
+    <color name="Translate">#f7000000</color>
+</resources>

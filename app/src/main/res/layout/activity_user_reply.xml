@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dsad.diycode.UserReplyActivity">
+<android.support.design.widget.TabLayout
+    android:id="@+id/top_userreply_tab"
+    app:tabSelectedTextColor="@color/TabTextSelectColor"
+    app:tabTextColor="@color/TabTextColor"
+    app:tabIndicatorColor="@color/TabTextColor"
+    app:tabBackground="@color/colorAppTheme"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+</android.support.design.widget.TabLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_userreply_pages"
+        android:layout_below="@+id/top_userreply_tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>

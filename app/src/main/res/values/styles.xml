@@ -1,0 +1,37 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorMenuBtn</item>
+        <!-- 导航栏透明-->
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+    <style name="NotifiactionTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorMenuBtn</item>
+        <item name="colorPrimaryDark">@color/colorMenuBtn</item>
+        <item name="colorAccent">@color/colorMenuBtn</item>
+    </style>
+    <!-- 这个要随着title变色的 -->
+    <style name="HomeAppThem" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorAppTheme</item>
+        <item name="colorPrimaryDark">@color/Translate</item>
+        <item name="colorAccent">@color/colorMenuBtn</item>
+    </style>
+    <style name="LoginAppThem" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorAppTheme</item>
+        <item name="colorPrimaryDark">@color/Translate</item>
+        <item name="colorAccent">@color/TopicItemNodeTextColor</item>
+    </style>
+    <style name="UserInfoTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorMenuBtn</item>
+    </style>
+</resources>

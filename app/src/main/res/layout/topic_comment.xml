@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:padding="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_topicinfo_commenthead"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:id="@+id/tv_topicinfo_commentusername"
+            android:text="demo"
+            android:layout_centerVertical="true"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginLeft="11dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_topicinfo_commenttime"
+            android:layout_alignBottom="@+id/tv_topicinfo_commenttime"
+            android:layout_toRightOf="@+id/img_topicinfo_commenthead"
+            android:layout_toEndOf="@+id/img_topicinfo_commenthead"
+            android:layout_marginStart="11dp" />
+        <TextView
+            android:id="@+id/tv_topicinfo_commenttime"
+            android:layout_width="wrap_content"
+            android:text="demo"
+            android:textColor="@android:color/darker_gray"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_reply_replyuser"
+            android:text="回复"
+            android:layout_toRightOf="@+id/tv_topicinfo_commentusername"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:textColor="@color/TopicItemNodeColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <WebView
+            android:id="@+id/web_topicinfo_commentcontent"
+            android:layout_width="match_parent"
+            android:textColor="#000"
+            android:text="demo"
+            android:textSize="15sp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

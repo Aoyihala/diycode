@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="10dp"
+    app:cardBackgroundColor="#fff"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_weight="1"
+            android:background="@null"
+            />
+        <Button
+            android:text="评论"
+            android:textColor="#000"
+            android:background="@drawable/button_shap"
+            android:layout_width="60dp"
+            android:layout_height="40dp" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>

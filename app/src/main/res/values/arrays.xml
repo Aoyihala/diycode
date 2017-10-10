@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="titles">
+        <item>话题</item>
+        <item>分享</item>
+        <item>酷站</item>
+    </array>
+</resources>

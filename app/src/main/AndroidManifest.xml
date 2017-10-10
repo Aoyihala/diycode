@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.dsad.diycode">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".appliction.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".HomeActivity"
+            android:theme="@style/HomeAppThem" />
+        <activity
+            android:name=".TopicInfoActivity"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateUnchanged|adjustPan" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/LoginAppThem" />
+        <activity android:name=".MyFavoriteActivity" />
+        <activity android:name=".MyTopicActivity" />
+        <activity android:name=".SettingActivity" />
+        <activity
+            android:name=".UserInfoActivity"
+            android:theme="@style/UserInfoTheme" />
+        <activity
+            android:name=".UserReplyActivity"
+            android:theme="@style/NotifiactionTheme" />
+        <activity android:name=".ReplyActivity" />
+        <activity android:name=".AddTopicActivity"></activity>
+    </application>
+
+</manifest>

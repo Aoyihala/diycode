@@ -22,6 +22,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.dsad.diycode.api.DiyCodeApi;
 import com.example.dsad.diycode.appliction.MyApplication;
 import com.example.dsad.diycode.base.RequsetActivity;
 import com.example.dsad.diycode.fragment.NewsFragment;
@@ -71,6 +73,7 @@ public class HomeActivity extends RequsetActivity {
     private ImageView img_userHead;
     private TextView tv_username;
     private TextView tv_userword;
+    private ImageView left_menubg;
     private RelativeLayout re_laytive;
     private UserDetail user_info;
     private MyFuliBitmapUtil imgview_util;
@@ -110,6 +113,9 @@ public class HomeActivity extends RequsetActivity {
             case R.id.action_notfication:
                 startActivity(UserReplyActivity.class, false);
                 break;
+            case R.id.action_home_setting:
+                startActivity(SettingActivity.class,false);
+                break;
         }
         return true;
     }
@@ -148,8 +154,10 @@ public class HomeActivity extends RequsetActivity {
         tv_username = navHomeLeftmenu.getHeaderView(0).findViewById(R.id.tv_left_username);
         tv_userword = navHomeLeftmenu.getHeaderView(0).findViewById(R.id.tv_left_userword);
         re_laytive = navHomeLeftmenu.getHeaderView(0).findViewById(R.id.rela_left_layout);
+        left_menubg = navHomeLeftmenu.getHeaderView(0).findViewById(R.id.img_leftmenu_background);
         //初始化id完毕
-
+        Glide.with(getApplicationContext()).load(DiyCodeApi.BING_PIC).into(left_menubg);
+        //加载背景图片
         re_laytive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -197,7 +205,7 @@ public class HomeActivity extends RequsetActivity {
                 switch (item.getItemId()) {
                     case R.id.action_mytie:
                         //我的话题
-                        if (user_info == null) {
+                        if (!MyApplication.getmDiycode().isLogin()) {
                             startActivity(LoginActivity.class, false);
                         } else {
                             startActivity(MyTopicActivity.class, false);
@@ -205,7 +213,7 @@ public class HomeActivity extends RequsetActivity {
                         break;
                     case R.id.action_myfavorite:
                         //我的收藏
-                        if (user_info == null) {
+                        if (!MyApplication.getmDiycode().isLogin()) {
                             startActivity(LoginActivity.class, false);
                         } else {
                             startActivity(MyFavoriteActivity.class, false);
@@ -219,7 +227,7 @@ public class HomeActivity extends RequsetActivity {
                         break;
                     case R.id.action_setting:
                         //设置
-                        startActivity(SettingActivity.class, false);
+                        startActivity(SettingActivity.class,false);
                         break;
 
                 }

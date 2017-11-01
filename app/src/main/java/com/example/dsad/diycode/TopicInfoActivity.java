@@ -1,18 +1,18 @@
 package com.example.dsad.diycode;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.dsad.diycode.adpter.compileadpter.TopicReplyAdpter;
@@ -29,7 +29,9 @@ import com.gcssloop.diycode_sdk.api.topic.bean.TopicContent;
 import com.gcssloop.diycode_sdk.api.topic.bean.TopicReply;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicRepliesListEvent;
-import com.mukesh.MarkdownView;
+import com.zzhoujay.richtext.RichText;
+import com.zzhoujay.richtext.callback.Callback;
+import com.zzhoujay.richtext.callback.OnImageClickListener;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -61,10 +63,10 @@ public class TopicInfoActivity extends RequsetActivity {
     TextView tvTopicinfoUsername;
     @Bind(R.id.tv_topicinfo_time)
     TextView tvTopicinfoTime;
-    @Bind(R.id.topic_content)
-    MarkdownView topicContent;
     @Bind(R.id.scroll_topicinfo_view)
     NestedScrollView scrollTopicinfoView;
+    @Bind(R.id.tv_topicinfo_content)
+    TextView tvTopicinfoContent;
     private TopicContent topic_data;
     //话题元
     private Topic nowtopic;
@@ -131,7 +133,9 @@ public class TopicInfoActivity extends RequsetActivity {
                 break;
             case R.id.action_browser:
                 //浏览器打开
-
+                Uri myBlogUri = Uri.parse(DiyCodeApi.TOPIC_URL + topic_data.getId());
+                Intent intent = new Intent(Intent.ACTION_VIEW, myBlogUri);
+                startActivity(intent);
                 break;
 
         }
@@ -174,6 +178,14 @@ public class TopicInfoActivity extends RequsetActivity {
                 startActivityForResult(intent, REPLY_UPDATE);
             }
         });
+        imgTopicinfoUserhead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), UserInfoActivity.class);
+                intent.putExtra("user", topic_data.getUser().getLogin());
+                startActivity(intent);
+            }
+        });
     }
 
     public void getTopicData() {
@@ -208,8 +220,23 @@ public class TopicInfoActivity extends RequsetActivity {
         tvTopicinfoTime.setText(TimeUtil.computePastTime(topic_data.getCreated_at()));
         tvTopicinfoUsername.setText(topic_data.getUser().getName());
         bitmaputl.display(ImagReplace.getImageUrl(topic_data.getUser().getAvatar_url()), imgTopicinfoUserhead);
-        topicContent.setMarkDownText(topic_data.getBody());
-
+        //topicContent.setMarkDownText(topic_data.getBody());
+        //关闭硬件加速
+        //tvTopicinfoContent.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        RichText.fromMarkdown(topic_data.getBody())
+                //不加载图片
+                //.noImage(true)
+                .autoFix(true)
+                .imageClick(new OnImageClickListener() {
+                    @Override
+                    public void imageClicked(List<String> imageUrls, int position) {
+                        //图片点击事件
+                        Intent intent = new Intent(getApplicationContext(), ImageActivity.class);
+                        intent.putExtra("imgurl", imageUrls.get(position));
+                        startActivity(intent);
+                    }
+                })
+                .into(tvTopicinfoContent);
     }
 
     //------------------------------请求内容部分-----------------------------------------------------
@@ -236,20 +263,6 @@ public class TopicInfoActivity extends RequsetActivity {
         reoly_adpter.setData(reply_list);
         reoly_adpter.notifyDataSetChanged();
     }
-
-    //保留!
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == event.KEYCODE_BACK) {
-            if (topicContent.canGoBack()) {
-                topicContent.goBack();
-            } else {
-                finish();
-            }
-        }
-        return true;
-    }
-
 
     public void getUserCollect() {
         data_cache = new DataCache(getApplicationContext());

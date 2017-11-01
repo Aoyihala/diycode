@@ -68,8 +68,8 @@ public class UserReplyActivity extends BaseActivity
     }
     private void inintfragment()
     {
-        reply_fragment.add(new UnReplyFragment(unread_notification));
-        reply_fragment.add(new ReplyFragment(read_notification));
+        reply_fragment.add(new UnReplyFragment());
+        reply_fragment.add(new ReplyFragment());
     }
 
     private void configViewPager()

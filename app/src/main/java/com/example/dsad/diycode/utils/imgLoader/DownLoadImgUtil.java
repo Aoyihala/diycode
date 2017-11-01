@@ -19,9 +19,10 @@ public class DownLoadImgUtil
     //这里会加载图片,把缓存类的对象实例化
     private ImgCache img_cache;
      private Bitmap bitmap;
+    private MemaryUtils me_utils;
     public DownLoadImgUtil()
     {
-        //me_utils = new MemaryUtils();
+        me_utils = new MemaryUtils();
         img_cache = new ImgCache();
     }
 
@@ -46,34 +47,10 @@ public class DownLoadImgUtil
                     view.setImageBitmap(response);
                 }
                 //内存
-                //me_utils.load(url,response);
+                me_utils.load(url,response);
                 //本地
                 img_cache.WriteCahce(url,response);
-
             }
         });
     }
-
-    public Bitmap getImageBitmap(String url)
-    {
-         bitmap = null;
-        //异步加载的类替换掉,用okhttp
-        ConnectionUtils.getData(url, new BitmapCallback()
-        {
-            @Override
-            public void onError(Call call, Exception e, int id)
-            {
-                //不打印
-            }
-            @Override
-            public void onResponse(Bitmap response, int id)
-            {
-                bitmap = response;
-            }
-        });
-        return bitmap;
-    }
-
-
-
 }

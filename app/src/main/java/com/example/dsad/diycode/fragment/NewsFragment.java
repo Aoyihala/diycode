@@ -52,7 +52,7 @@ public class NewsFragment extends BaseFragment
         recyclerBaseView.setLayoutManager(new LinearLayoutManager(context));
         recyclerBaseView.setAdapter(news_adpter);
     }
-
+//-------------------------------------------------------------
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void getNewsList(GetNewsListEvent eva)
     {

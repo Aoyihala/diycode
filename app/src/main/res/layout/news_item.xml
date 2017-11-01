@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:padding="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <RelativeLayout
         android:padding="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -40,6 +43,7 @@
 
     </RelativeLayout>
     <LinearLayout
+
         android:padding="5dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -53,6 +57,10 @@
             android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:padding="5dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -67,7 +75,7 @@
     </LinearLayout>
     <View
         android:layout_marginTop="10dp"
-        android:background="@android:color/darker_gray"
+        android:background="@color/ItemSpaceColor"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="15dp"/>
 </LinearLayout>

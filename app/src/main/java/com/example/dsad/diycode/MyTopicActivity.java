@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.example.dsad.diycode.adpter.MyFavoriteAdpter;
 import com.example.dsad.diycode.appliction.MyApplication;
@@ -91,7 +92,12 @@ public class MyTopicActivity extends RequsetActivity implements SwipeRefreshLayo
     }
 
     private void ininitsession() {
-
+        btnMyfavoriteBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void getuser() {

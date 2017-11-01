@@ -71,7 +71,7 @@ public class TopicAdpter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             //Glide.with(holder.itemView.getContext()).load(user.getAvatar_url()).load(holder.imgTopicitemUserhead);
             bitmapUtil.display(user.getAvatar_url(), topic_viewholder.imgTopicitemUserhead);
             topic_viewholder.tvTopicitemNodename.setText(topic.getNode_name());
-            topic_viewholder.tvTopicitemCommentcount.setText("评论数:\t\t" + topic.getReplies_count());
+            topic_viewholder.tvTopicitemCommentcount.setText(topic.getReplies_count()+"个回复");
         } else if (getItemViewType(position) == FOOT_TYPE) {
             FootViewHolder foot_viweholder = (FootViewHolder) holder;
             if (data.size() == DiyCodeApi.MAX_COUNT)

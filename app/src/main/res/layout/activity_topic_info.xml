@@ -33,24 +33,27 @@
         android:id="@+id/scroll_topicinfo_view"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-            <LinearLayout
+        android:layout_height="match_parent">
+            <RelativeLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <include
+                    android:id="@+id/include_topicinfo_layout"
                     layout="@layout/topic_info"
                     />
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_topicinfo_view"
+                    android:layout_below="@+id/include_topicinfo_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 </android.support.v7.widget.RecyclerView>
-            </LinearLayout>
+            </RelativeLayout>
 
     </android.support.v4.widget.NestedScrollView>
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/btn_topinfo_reply"
+                android:visibility="gone"
                 android:layout_alignParentBottom="true"
                 app:layout_anchor="@id/recycler_topicinfo_view"
                 app:layout_anchorGravity="bottom|right"

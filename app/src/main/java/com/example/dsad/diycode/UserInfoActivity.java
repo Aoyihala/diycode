@@ -121,7 +121,7 @@ public class UserInfoActivity extends RequsetActivity {
     {
 
         //如果是当前用户
-        if (login_name.equals(mCache.getMe().getLogin()))
+        if (MyApplication.getmDiycode().isLogin()&&login_name.equals(mCache.getMe().getLogin()))
         {
             user_info = mCache.getMe();
             MyApplication.getmDiycode().getUser(login_name);

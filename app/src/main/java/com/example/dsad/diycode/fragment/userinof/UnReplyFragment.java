@@ -33,10 +33,11 @@ public class UnReplyFragment extends Fragment {
     RecyclerView recyclerUserreplyView;
     private List<android.app.Notification> notifica_list = new ArrayList<>();
     private NotificationAdpter no_adpter;
-
+/**
     public UnReplyFragment(List<com.gcssloop.diycode_sdk.api.notifications.bean.Notification> allnotification) {
         this.allnotification = allnotification;
     }
+ **/
 
     @Nullable
     @Override

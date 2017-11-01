@@ -49,7 +49,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <WebView
+        <TextView
             android:id="@+id/web_topicinfo_commentcontent"
             android:layout_width="match_parent"
             android:textColor="#000"

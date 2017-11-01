@@ -1,5 +1,7 @@
 package com.example.dsad.diycode;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
@@ -7,17 +9,20 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.dsad.diycode.api.DiyCodeApi;
 import com.example.dsad.diycode.appliction.MyApplication;
 import com.example.dsad.diycode.base.RequsetActivity;
 import com.example.dsad.diycode.utils.TosatUtils;
+import com.example.dsad.diycode.utils.UiUtlis;
 import com.gcssloop.diycode_sdk.api.login.event.LoginEvent;
-
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
 import at.markushi.ui.ActionView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -40,6 +45,8 @@ public class LoginActivity extends RequsetActivity {
     Button btnLoginLogin;
     @Bind(R.id.tv_login_register)
     TextView tvLoginRegister;
+    @Bind(R.id.rela_login_layout)
+    RelativeLayout relaLoginLayout;
     private String msg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,14 +86,25 @@ public class LoginActivity extends RequsetActivity {
                 }
                 MyApplication.getmDiycode().login(username, password);
                 MyApplication.getmDiycode().getUser(username);
-
-
             }
         });
+        //点击回到上一页
         btnLoginBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+        //点击注册
+        tvLoginRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvLoginRegister.setTextColor(UiUtlis.getColor(R.color.TopicItemNodeTextColor));
+                //未提供注册接口,跳转至原网页
+                Uri myBlogUri = Uri.parse(DiyCodeApi.REGISTER);
+                Intent intent = new Intent(Intent.ACTION_VIEW, myBlogUri);
+                startActivity(intent);
+
             }
         });
     }
@@ -97,20 +115,19 @@ public class LoginActivity extends RequsetActivity {
             MyApplication.getmDiycode().getMe();
             Log.e("user", eva.getBean().getAccess_token());
             finish();
-        }
-        else
-            {
+        } else {
             switch (eva.getCode()) {
                 case -1:
                     msg = "请检查网络连接";
+
                     break;
                 case 400:
+
                 case 401:
                     msg = "请检查用户名和密码是否正确";
                     break;
             }
             TosatUtils.ShowToast(msg);
-
         }
 
     }

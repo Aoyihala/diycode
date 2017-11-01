@@ -5,7 +5,7 @@ android {
     buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "com.example.dsad.diycode"
-        minSdkVersion 15
+        minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -21,7 +21,13 @@ android {
                 maven { url "http://jitpack.io" }
             }
         }
-
+        lintOptions
+                {
+                    checkReleaseBuilds false
+                    // Or, if you prefer, you can continue to check for errors in release builds,
+                    // but continue the build even when errors are found:
+                    abortOnError false
+                }
     }
 }
 
@@ -30,18 +36,16 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
-
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
     compile 'com.android.support:design:26.0.0-alpha1'
+    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support:design:26.0.0-alpha1'
-    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:cardview-v7:26.0.0-alpha1'
+    compile 'com.android.support:design:26.0.0-alpha1'
     compile 'com.github.gcssloop:diycode-sdk:0.1.0'
     compile 'com.github.bumptech.glide:glide:4.0.0'
     compile 'com.github.githubwing:ByeBurger:1.2.3'
@@ -54,8 +58,8 @@ dependencies {
     compile 'com.trycatch.android:mysnackbar:1.2.2'
     compile 'pub.devrel:easypermissions:0.4.2'
     compile 'com.github.donkingliang:GroupedRecyclerViewAdapter:1.0.4'
+    compile 'com.zzhoujay.richtext:richtext:2.5.4'
+    compile 'com.zzhoujay.glideimagegetter:glideimagegetter:1.0.5'
     testCompile 'junit:junit:4.12'
-    compile 'com.yydcdut:rxmarkdown:0.0.7'
-    compile 'io.reactivex:rxandroid:1.2.0'
-    compile 'io.reactivex:rxjava:1.1.5'
+    compile 'com.github.chrisbanes:PhotoView:2.1.3'
 }

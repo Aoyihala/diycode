@@ -14,6 +14,8 @@ import com.example.dsad.diycode.utils.DataCache;
 import com.gcssloop.diycode_sdk.api.Diycode;
 import com.gcssloop.diycode_sdk.api.notifications.bean.Notification;
 import com.gcssloop.diycode_sdk.api.notifications.event.GetNotificationsListEvent;
+import com.zzhoujay.richtext.RichText;
+import com.zzhoujay.richtext.RichTextConfig;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -44,9 +46,14 @@ public class MyApplication extends Application
         mContext = getApplicationContext();
         on_manmanger = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         inintdiysdk();
+        inintrichtext();
         getUserReplyData();
     }
+    //设置富文本相关
+    private void inintrichtext()
+    {
 
+    }
     //初始化sdk
     private void inintdiysdk()
     {

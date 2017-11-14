@@ -15,6 +15,10 @@ diycode是一个技术交流基地,个人很喜欢,里面大牛很多,加上该�
 5.更新节点选择查看功能<br>
 ##### 改版效果如下:
 ---
+![Image text](https://raw.githubusercontent.com/Aoyihala/img/master/diycode/follow.png)
+---
+![Image text](https://raw.githubusercontent.com/Aoyihala/img/master/diycode/userinfo.png)
+---
 ## 简介
 Diycode 社区客户端，可以更方便的在手机上查看社区信息。由于目前sdk功能尚未完善，还存在一些已知或未知的bug,所以暂时停止开发。
 

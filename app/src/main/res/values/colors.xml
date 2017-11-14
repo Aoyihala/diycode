@@ -8,6 +8,8 @@
     <color name="TabTextColor">#616161</color>
     <color name="TabTextSelectColor">#000</color>
     <color name="TopicItemNodeTextColor">#ff4343</color>
-    <color name="TopicItemNodeColor">#ff8b8b</color>
+    <color name="TopicItemNodeColor">#ff4343</color>
     <color name="Translate">#f7000000</color>
+    <color name="LoadImage">#DB3937</color>
+    <color name="ItemSpaceColor">#F0F0F0</color>
 </resources>

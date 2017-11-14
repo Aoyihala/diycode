@@ -17,7 +17,6 @@
             android:id="@+id/tv_topicinfo_username"
             android:layout_toRightOf="@+id/img_topicinfo_userhead"
             android:layout_centerVertical="true"
-            android:text="demo"
             android:textColor="#000"
             android:layout_width="wrap_content"
             android:layout_marginLeft="15dp"
@@ -27,13 +26,50 @@
             android:textColor="@android:color/darker_gray"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:text="demo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <!-- 关注-->
+        <TextView
+            android:id="@+id/tv_topicinfo_follow"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:textSize="10sp"
+            android:text="关注"
+            android:visibility="gone"
+            android:textColor="@color/TabTextSelectColor"
+            android:layout_toRightOf="@+id/tv_topicinfo_username"
+            android:layout_width="wrap_content"
+            android:background="@drawable/unfollow"
+            android:layout_height="wrap_content"
+            />
+    </RelativeLayout>
+    <View
+        android:background="@color/ItemSpaceColor"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <TextView
+        android:id="@+id/tv_topicinfo_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"
+        />
+    <View
+        android:background="@color/ItemSpaceColor"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
+    <LinearLayout
+        android:padding="5dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_topicinfo_replycount"
+            android:layout_marginLeft="10dp"
+            android:textSize="12sp"
+            android:textColor="@color/colorMenuBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-    </RelativeLayout>
-    <com.mukesh.MarkdownView
-        android:id="@+id/topic_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </com.mukesh.MarkdownView>
+    </LinearLayout>
 </LinearLayout>

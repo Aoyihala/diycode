@@ -11,6 +11,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -28,21 +29,42 @@
             android:name=".TopicInfoActivity"
             android:hardwareAccelerated="true"
             android:launchMode="singleTop"
+            android:process="com.web"
+            android:theme="@style/HomeAppThem"
             android:windowSoftInputMode="stateUnchanged|adjustPan" />
         <activity
             android:name=".LoginActivity"
             android:theme="@style/LoginAppThem" />
-        <activity android:name=".MyFavoriteActivity" />
-        <activity android:name=".MyTopicActivity" />
-        <activity android:name=".SettingActivity" />
+        <activity android:name=".MyFavoriteActivity"
+            android:theme="@style/HomeAppThem"
+            />
+        <activity android:name=".MyTopicActivity"
+            android:theme="@style/HomeAppThem"
+            />
+        <activity android:name=".SettingActivity"
+            android:theme="@style/HomeAppThem"
+            />
         <activity
             android:name=".UserInfoActivity"
             android:theme="@style/UserInfoTheme" />
         <activity
             android:name=".UserReplyActivity"
             android:theme="@style/NotifiactionTheme" />
-        <activity android:name=".ReplyActivity" />
-        <activity android:name=".AddTopicActivity"></activity>
+        <activity
+            android:name=".ReplyActivity"
+            android:theme="@style/HomeAppThem" />
+        <activity
+            android:name=".AddTopicActivity"
+            android:theme="@style/HomeAppThem" />
+        <activity
+            android:name=".ImageActivity"
+            android:theme="@style/HomeAppThem" />
+        <activity
+            android:name=".NodeActivity"
+            android:theme="@style/HomeAppThem" />
+        <activity android:name=".NodeContentActivity"
+            android:theme="@style/HomeAppThem"
+            />
     </application>
 
 </manifest>

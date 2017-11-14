@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import com.example.dsad.diycode.adpter.MyFavoriteAdpter;
 import com.example.dsad.diycode.appliction.MyApplication;
@@ -29,8 +30,6 @@ import butterknife.ButterKnife;
 public class MyTopicActivity extends RequsetActivity implements SwipeRefreshLayout.OnRefreshListener
 {
 
-    @Bind(R.id.btn_myfavorite_back)
-    ActionView btnMyfavoriteBack;
     @Bind(R.id.top_myfavorite_bar)
     Toolbar topMyfavoriteBar;
     @Bind(R.id.recycler_myfavotie_view)
@@ -75,6 +74,7 @@ public class MyTopicActivity extends RequsetActivity implements SwipeRefreshLayo
     }
     private void cofigtop() {
         setSupportActionBar(topMyfavoriteBar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
     }
@@ -91,7 +91,6 @@ public class MyTopicActivity extends RequsetActivity implements SwipeRefreshLayo
     }
 
     private void ininitsession() {
-
     }
 
     public void getuser() {

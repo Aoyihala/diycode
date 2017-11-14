@@ -29,8 +29,6 @@ import butterknife.ButterKnife;
 
 public class MyFavoriteActivity extends BaseActivity {
 
-    @Bind(R.id.btn_myfavorite_back)
-    ActionView btnMyfavoriteBack;
     @Bind(R.id.top_myfavorite_bar)
     Toolbar topMyfavoriteBar;
     @Bind(R.id.recycler_myfavotie_view)
@@ -73,6 +71,7 @@ public class MyFavoriteActivity extends BaseActivity {
     }
     private void cofigtop() {
         setSupportActionBar(topMyfavoriteBar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
     }
@@ -90,12 +89,6 @@ public class MyFavoriteActivity extends BaseActivity {
 
     private void ininitsession()
     {
-        btnMyfavoriteBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
     public void getuser() {
         cache = new DataCache(getApplicationContext());

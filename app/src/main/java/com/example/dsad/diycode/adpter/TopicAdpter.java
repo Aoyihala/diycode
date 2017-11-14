@@ -8,11 +8,11 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.dsad.diycode.R;
 import com.example.dsad.diycode.api.DiyCodeApi;
+import com.example.dsad.diycode.utils.ImagReplace;
 import com.example.dsad.diycode.utils.TimeUtil;
-import com.example.dsad.diycode.utils.TosatUtils;
-import com.example.dsad.diycode.utils.imgLoader.MyFuliBitmapUtil;
 import com.gcssloop.diycode_sdk.api.topic.bean.Topic;
 import com.gcssloop.diycode_sdk.api.user.bean.User;
 
@@ -31,7 +31,6 @@ public class TopicAdpter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private final int NORMAL_TYPE = 0;
     private final int FOOT_TYPE = 1;
     private List<Topic> data;
-    private MyFuliBitmapUtil bitmapUtil = new MyFuliBitmapUtil();
     private onItemClickListener listener;
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -68,10 +67,10 @@ public class TopicAdpter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             topic_viewholder.tvTopicitemTime.setText(TimeUtil.computePastTime(topic.getCreated_at()));
             topic_viewholder.tvTopicitemTitle.setText(topic.getTitle());
             topic_viewholder.tvTopicitemUsername.setText(user.getName());
-            //Glide.with(holder.itemView.getContext()).load(user.getAvatar_url()).load(holder.imgTopicitemUserhead);
-            bitmapUtil.display(user.getAvatar_url(), topic_viewholder.imgTopicitemUserhead);
+            Glide.with(holder.itemView.getContext()).load(ImagReplace.getImageUrl(user.getAvatar_url())).into(topic_viewholder.imgTopicitemUserhead);
+            //bitmapUtil.display(user.getAvatar_url(), topic_viewholder.imgTopicitemUserhead);
             topic_viewholder.tvTopicitemNodename.setText(topic.getNode_name());
-            topic_viewholder.tvTopicitemCommentcount.setText("评论数:\t\t" + topic.getReplies_count());
+            topic_viewholder.tvTopicitemCommentcount.setText(topic.getReplies_count()+"个回复");
         } else if (getItemViewType(position) == FOOT_TYPE) {
             FootViewHolder foot_viweholder = (FootViewHolder) holder;
             if (data.size() == DiyCodeApi.MAX_COUNT)

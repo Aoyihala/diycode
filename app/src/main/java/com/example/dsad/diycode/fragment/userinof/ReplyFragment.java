@@ -33,11 +33,11 @@ public class ReplyFragment extends Fragment {
     RecyclerView recyclerUserreplyView;
     private List<Notification> notifica_list = new ArrayList<>();
     private NotificationAdpter no_adpter;
+    /**
     public ReplyFragment(List<com.gcssloop.diycode_sdk.api.notifications.bean.Notification> allnotification)
     {
         this.allnotification = allnotification;
-    }
-
+    }**/
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

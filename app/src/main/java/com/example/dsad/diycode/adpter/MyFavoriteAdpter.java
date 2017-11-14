@@ -8,11 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.dsad.diycode.R;
 import com.example.dsad.diycode.TopicInfoActivity;
+import com.example.dsad.diycode.appliction.MyApplication;
 import com.example.dsad.diycode.utils.ImagReplace;
 import com.example.dsad.diycode.utils.TimeUtil;
-import com.example.dsad.diycode.utils.imgLoader.MyFuliBitmapUtil;
 import com.gcssloop.diycode_sdk.api.topic.bean.Topic;
 import com.gcssloop.diycode_sdk.api.user.bean.User;
 
@@ -29,7 +30,6 @@ import butterknife.ButterKnife;
 public class MyFavoriteAdpter extends RecyclerView.Adapter<MyFavoriteAdpter.MyFavoriteViewHolder> {
 
     private List<Topic> data;
-    private MyFuliBitmapUtil util = new MyFuliBitmapUtil();
     @Override
     public MyFavoriteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //这里收藏用的item和topic是一样的
@@ -42,7 +42,9 @@ public class MyFavoriteAdpter extends RecyclerView.Adapter<MyFavoriteAdpter.MyFa
     {
         Topic topic = data.get(position);
         User user = topic.getUser();
-        util.display(ImagReplace.getImageUrl(user.getAvatar_url()),holder.imgTopicitemUserhead);
+        //util.display(ImagReplace.getImageUrl(user.getAvatar_url()),holder.imgTopicitemUserhead);
+        Glide.with(MyApplication.getmContext()).load(ImagReplace.getImageUrl(user.getAvatar_url()))
+                .into(holder.imgTopicitemUserhead);
         holder.tvTopicitemCommentcount.setText("评论数:"+"\t\t"+topic.getReplies_count());
         holder.tvTopicitemNodename.setText(topic.getNode_name());
         holder.tvTopicitemTime.setText(TimeUtil.computePastTime(topic.getCreated_at()));

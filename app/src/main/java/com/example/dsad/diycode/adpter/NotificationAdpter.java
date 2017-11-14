@@ -7,17 +7,16 @@ import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.dsad.diycode.R;
 import com.example.dsad.diycode.UserInfoActivity;
+import com.example.dsad.diycode.appliction.MyApplication;
 import com.example.dsad.diycode.utils.ImagReplace;
-import com.example.dsad.diycode.utils.imgLoader.MyFuliBitmapUtil;
 import com.gcssloop.diycode_sdk.api.notifications.bean.Notification;
 import com.gcssloop.diycode_sdk.api.notifications.bean.Reply;
-import com.gcssloop.diycode_sdk.api.topic.bean.Topic;
 import com.gcssloop.diycode_sdk.api.user.bean.User;
 
 import java.util.List;
@@ -33,7 +32,6 @@ import butterknife.ButterKnife;
 public class NotificationAdpter extends RecyclerView.Adapter<NotificationAdpter.NotifiViewHolder> {
 
     private List<Notification> data;
-    private MyFuliBitmapUtil bitmapUtil = new MyFuliBitmapUtil();
     private Spanned spanned_html;
     private onNotifItemClickListener listener;
     public NotificationAdpter(List<Notification> allnotification) {
@@ -55,7 +53,9 @@ public class NotificationAdpter extends RecyclerView.Adapter<NotificationAdpter.
         Notification oneitem = data.get(position);
         User user = oneitem.getActor();
         Reply reply = oneitem.getMention();
-        bitmapUtil.display(ImagReplace.getImageUrl(user.getAvatar_url()),holder.imgNotifiUserhead);
+        //bitmapUtil.display(ImagReplace.getImageUrl(user.getAvatar_url()),holder.imgNotifiUserhead);
+        Glide.with(MyApplication.getmContext()).load(ImagReplace.getImageUrl(user.getAvatar_url()))
+                .into(holder.imgNotifiUserhead);
         holder.tvNotifiUsername.setText(user.getName());
         holder.tvNotifiWhere.setText("在"+reply.getTopic_id()+"提及你");
         String text = reply.getBody_html();

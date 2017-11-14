@@ -39,6 +39,12 @@ public class SiteFragment extends BaseFragment
         //获取支持站点
         MyApplication.getmDiycode().getSites();
     }
+
+    @Override
+    protected boolean setNotRefresh() {
+        return true;
+    }
+
     @Override
     protected void inintrecycler()
     {

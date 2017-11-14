@@ -11,12 +11,6 @@
         android:id="@+id/top_myfavorite_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <at.markushi.ui.ActionView
-            app:av_color="@color/colorMenuBtn"
-            app:av_action="back"
-            android:id="@+id/btn_myfavorite_back"
-            android:layout_width="30dp"
-            android:layout_height="30dp" />
         <TextView
             android:textSize="20sp"
             android:text="收藏"

@@ -3,6 +3,7 @@ package com.example.dsad.diycode.utils;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.support.annotation.IdRes;
 import android.view.View;
 
 import com.example.dsad.diycode.R;
@@ -32,9 +33,9 @@ public class UiUtlis
 
 
 
-    public static List<String> getViewPagerTitle()
+    public static List<String> getViewPagerTitle(@IdRes int id)
     {
-        String[] rs = getContext().getResources().getStringArray(R.array.titles);
+        String[] rs = getContext().getResources().getStringArray(id);
         List<String> list = new ArrayList<>();
         for (String s :rs)
         {

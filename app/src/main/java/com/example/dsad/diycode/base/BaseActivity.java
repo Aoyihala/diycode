@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -32,4 +33,19 @@ public class BaseActivity extends AppCompatActivity
         startActivity(new Intent(this,clazz));
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //这里只对返回按钮做统一处理
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                finish();
+                break;
+
+
+        }
+
+        return true;
+    }
 }
+

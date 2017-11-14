@@ -10,11 +10,13 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.dsad.diycode.R;
 import com.example.dsad.diycode.api.DiyCodeApi;
+import com.example.dsad.diycode.appliction.MyApplication;
+import com.example.dsad.diycode.utils.ImagReplace;
 import com.example.dsad.diycode.utils.TimeUtil;
 import com.example.dsad.diycode.utils.UiUtlis;
-import com.example.dsad.diycode.utils.imgLoader.MyFuliBitmapUtil;
 import com.gcssloop.diycode_sdk.api.news.bean.New;
 import com.gcssloop.diycode_sdk.api.user.bean.User;
 
@@ -32,7 +34,6 @@ public class NewsAdpter extends RecyclerView.Adapter {
     private final int NORMAL_TYPE = 0;
     private final int FOOT_TYPE = 1;
     private List<New> data;
-    private MyFuliBitmapUtil util = new MyFuliBitmapUtil();
     private onNewsItemClickListener listener;
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -55,7 +56,9 @@ public class NewsAdpter extends RecyclerView.Adapter {
             NewsViewHoler news_viewholder = (NewsViewHoler) holder;
             New oneitem = data.get(position);
             User user = oneitem.getUser();
-            util.display(user.getAvatar_url(),news_viewholder.imgNewsitemUserhead);
+            //util.display(user.getAvatar_url(),news_viewholder.imgNewsitemUserhead);
+            Glide.with(MyApplication.getmContext()).load(ImagReplace.getImageUrl(user.getAvatar_url()))
+                    .into(news_viewholder.imgNewsitemUserhead);
             news_viewholder.tvNewsitemNodename.setText(oneitem.getNode_name());
             news_viewholder.tvNewsitemSource.setText(UiUtlis.getHost(oneitem.getAddress()));
             news_viewholder.tvNewsitemTime.setText(TimeUtil.computePastTime(oneitem.getCreated_at()));

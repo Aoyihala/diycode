@@ -14,12 +14,6 @@
         android:id="@+id/top_topic_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <at.markushi.ui.ActionView
-            android:id="@+id/btn_topicinfo_back"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            app:av_action="back"
-            app:av_color="@color/colorMenuBtn" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,21 +27,22 @@
         android:id="@+id/scroll_topicinfo_view"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-            <LinearLayout
+        android:layout_height="match_parent">
+            <RelativeLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <include
+                    android:id="@+id/include_topicinfo_layout"
                     layout="@layout/topic_info"
                     />
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_topicinfo_view"
+                    android:layout_below="@+id/include_topicinfo_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 </android.support.v7.widget.RecyclerView>
-            </LinearLayout>
-
+            </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/btn_topinfo_reply"

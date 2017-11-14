@@ -36,6 +36,12 @@ public class NewsFragment extends BaseFragment
     {
         MyApplication.getmDiycode().getNewsList(null,null,count);
     }
+
+    @Override
+    protected boolean setNotRefresh() {
+        return true;
+    }
+
     @Override
     protected void inintrecycler()
     {
@@ -52,7 +58,7 @@ public class NewsFragment extends BaseFragment
         recyclerBaseView.setLayoutManager(new LinearLayoutManager(context));
         recyclerBaseView.setAdapter(news_adpter);
     }
-
+//-------------------------------------------------------------
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void getNewsList(GetNewsListEvent eva)
     {

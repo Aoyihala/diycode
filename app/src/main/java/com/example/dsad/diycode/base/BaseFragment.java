@@ -32,6 +32,7 @@ public abstract class BaseFragment extends Fragment implements SwipeRefreshLayou
 {
     protected AppCompatActivity activity;
     protected Context context;
+    private boolean refrsh=true;
     @Bind(R.id.recycler_base_view)
     protected RecyclerView recyclerBaseView;
     @Bind(R.id.swipe_base_refresh)
@@ -63,6 +64,7 @@ public abstract class BaseFragment extends Fragment implements SwipeRefreshLayou
         context = getContext();
         inintdata();
     }
+    protected abstract boolean setNotRefresh();
 
     @Override
     public void onDestroyView() 
@@ -109,8 +111,13 @@ public abstract class BaseFragment extends Fragment implements SwipeRefreshLayou
 
     private void setRefresh()
     {
-        swipeBaseRefresh.setRefreshing(true);
+        refrsh = setNotRefresh();
+        if (refrsh==true)
+        {
+            swipeBaseRefresh.setRefreshing(true);
+        }
         swipeBaseRefresh.setOnRefreshListener(this);
+
     }
     protected abstract void inintrecycler();
 

@@ -20,8 +20,6 @@ import at.markushi.ui.ActionView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 public class ReplyActivity extends RequsetActivity {
-    @Bind(R.id.btn_reply_back)
-    ActionView btnReplyBack;
     @Bind(R.id.tv_reply_topictitle)
     TextView tvReplyTopictitle;
     @Bind(R.id.edit_reply_content)
@@ -51,6 +49,7 @@ public class ReplyActivity extends RequsetActivity {
         getTopicid();
         //设置topbar
         setSupportActionBar(topReplyBar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         configedit();
 

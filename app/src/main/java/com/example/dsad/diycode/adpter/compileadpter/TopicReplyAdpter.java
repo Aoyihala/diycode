@@ -6,17 +6,19 @@ import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.dsad.diycode.R;
 import com.example.dsad.diycode.ReplyActivity;
 import com.example.dsad.diycode.UserInfoActivity;
+import com.example.dsad.diycode.appliction.MyApplication;
 import com.example.dsad.diycode.utils.ImagReplace;
 import com.example.dsad.diycode.utils.TimeUtil;
-import com.example.dsad.diycode.utils.imgLoader.MyFuliBitmapUtil;
 import com.gcssloop.diycode_sdk.api.topic.bean.TopicReply;
 import com.gcssloop.diycode_sdk.api.user.bean.User;
+import com.zzhoujay.richtext.RichText;
+import com.zzhoujay.richtext.callback.OnImageClickListener;
 
 import java.util.List;
 
@@ -30,16 +32,16 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 
 public class TopicReplyAdpter extends RecyclerView.Adapter<TopicReplyAdpter.TopicReplyViewHolder> {
-
-
     private List<TopicReply> data;
-    private MyFuliBitmapUtil util = new MyFuliBitmapUtil();
+    private onclickImageListener listener;
     private Spanned spanned_html;
-
     public TopicReplyAdpter() {
 
     }
-
+    public void setOnImageClickListener(onclickImageListener listener)
+    {
+        this.listener = listener;
+    }
     @Override
     public TopicReplyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.topic_comment, parent, false);
@@ -49,10 +51,32 @@ public class TopicReplyAdpter extends RecyclerView.Adapter<TopicReplyAdpter.Topi
     @Override
     public void onBindViewHolder(final TopicReplyViewHolder holder, final int position) {
         final TopicReply oneitem = data.get(position);
-        User user = oneitem.getUser();
-        util.display(ImagReplace.getImageUrl(user.getAvatar_url()), holder.imgTopicinfoCommenthead);
+        final User user = oneitem.getUser();
+        //util.display(ImagReplace.getImageUrl(user.getAvatar_url()), holder.imgTopicinfoCommenthead);
+        Glide.with(MyApplication.getmContext()).load(ImagReplace.getImageUrl(user.getAvatar_url()))
+                .into(holder.imgTopicinfoCommenthead);
         holder.tvTopicinfoCommentusername.setText(user.getName());
-        holder.tvTopicinfoCommentcontent.loadDataWithBaseURL(null, oneitem.getBody_html(), "text/html", "utf-8", null);
+        //holder.tvTopicinfoCommentcontent.loadDataWithBaseURL(null, oneitem.getBody_html(), "text/html", "utf-8", null);
+        //holder.tvTopicinfoCommentcontent.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        RichText.fromHtml(oneitem.getBody_html())
+                .autoFix(true)
+                .clickable(true)
+                .imageClick(new OnImageClickListener()
+                {
+                    @Override
+                    public void imageClicked(List<String> imageUrls, int position) {
+                        /*这里把url传到接口,方便接口实现的时候获取
+                        Intent intent = new Intent(MyApplication.getmContext(), ImageActivity.class);
+                        intent.putExtra("imgurl",imageUrls.get(position));
+                        MyApplication.getmContext().startActivity(intent);
+                        */
+                        if (listener!=null)
+                        {
+                            listener.onImgClick(imageUrls.get(position));
+                        }
+                    }
+                })
+                .into(holder.tvTopicinfoCommentcontent);
         holder.tvTopicinfoCommentcontent.setClickable(false);
         holder.tvTopicinfoCommentcontent.setFocusable(false);
         holder.tvTopicinfoCommenttime.setText(TimeUtil.computePastTime(oneitem.getCreated_at()));
@@ -76,7 +100,7 @@ public class TopicReplyAdpter extends RecyclerView.Adapter<TopicReplyAdpter.Topi
         @Bind(R.id.tv_topicinfo_commenttime)
         TextView tvTopicinfoCommenttime;
         @Bind(R.id.web_topicinfo_commentcontent)
-        WebView tvTopicinfoCommentcontent;
+        TextView tvTopicinfoCommentcontent;
         @Bind(R.id.tv_reply_replyuser)
         TextView tvReplyReplyuser;
         public TopicReplyViewHolder(View itemView) {
@@ -106,5 +130,9 @@ public class TopicReplyAdpter extends RecyclerView.Adapter<TopicReplyAdpter.Topi
             }
 
         }
+    }
+    public interface onclickImageListener
+    {
+        void onImgClick(String url);
     }
 }

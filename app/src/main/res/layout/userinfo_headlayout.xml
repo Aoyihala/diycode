@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<android.support.design.widget.AppBarLayout
+    android:id="@+id/app_userinfo_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.design.widget.CollapsingToolbarLayout
+        android:id="@+id/colltop_userinfo_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentScrim="@color/TabTextSelectColor"
+        app:expandedTitleMarginStart="48dp"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+        <!--随机背景图片-->
+        <ImageView
+            android:id="@+id/img_userinfo_bg"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/graite_shap"
+            android:fitsSystemWindows="true"
+            />
+        <android.support.v7.widget.Toolbar
+            app:theme="@style/ToolbarHome"
+            app:layout_collapseMode="pin"
+            android:id="@+id/top_userinfo_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+           <TextView
+               android:id="@+id/tv_userinfo_title"
+               android:textColor="@color/colorMenuBtn"
+               android:textSize="20sp"
+               android:layout_gravity="center_horizontal"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.CollapsingToolbarLayout>
+</android.support.design.widget.AppBarLayout>
+    <LinearLayout
+        android:gravity="center"
+        app:layout_anchor="@id/app_userinfo_bar"
+        app:layout_anchorGravity="center"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_userinfo_userhead"
+            android:layout_width="70dp"
+            android:layout_height="70dp"/>
+        <TextView
+            android:id="@+id/tv_userinfo_username"
+            android:textColor="@color/colorAppTheme"
+            android:textSize="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="10sp"
+            android:singleLine="true"
+            android:textColor="@color/colorAppTheme"
+            android:id="@+id/tv_userinfo_userword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_userinfo_tabs"
+            app:tabBackground="@color/colorAppTheme"
+            app:tabTextColor="@color/TabTextColor"
+            app:tabIndicatorColor="@color/TabTextColor"
+            app:tabSelectedTextColor="@color/TabTextSelectColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.design.widget.TabLayout>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_userinfo_"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v4.view.ViewPager>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

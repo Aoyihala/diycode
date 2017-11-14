@@ -5,36 +5,33 @@ import android.graphics.BitmapFactory;
 import android.widget.ImageView;
 
 /**
- * 福利加载图片的异步下载框架
+ * 图片的异步下载框架
  * Created by dsad on 2017/9/16.
  */
 
 public class MyFuliBitmapUtil
 {
-    //private MemaryUtils memary_utlis;
+    private MemaryUtils memary_utlis;
     private Bitmap bitmap;
     private ImgCache cache;
     private DownLoadImgUtil downLoadImgUtil;
     public MyFuliBitmapUtil()
     {
-        //memary_utlis = new MemaryUtils();
+        memary_utlis = new MemaryUtils();
         cache = new ImgCache();
         downLoadImgUtil = new DownLoadImgUtil();
 
     }
-
     public void display(String url, ImageView view)
     {
         //这里还可以设置默认图片
-
         //先到内存里去读
-        //Bitmap me_bitmap = memary_utlis.read(url);
-        //if (me_bitmap!=null)
-        //{
-
-            //view.setImageBitmap(me_bitmap);
-            //return;
-       //}
+        Bitmap me_bitmap = memary_utlis.read(url);
+        if (me_bitmap!=null)
+        {
+            view.setImageBitmap(me_bitmap);
+            return;
+        }
         //内存没有就文件
         Bitmap file_bitmap = cache.ReadCach(url);
         if (file_bitmap!=null)
@@ -46,7 +43,6 @@ public class MyFuliBitmapUtil
         //最后是网络
         downLoadImgUtil.getImage(url,view);
     }
-
     /***
      * 单纯的从缓存获取图片
      * @param url
@@ -67,7 +63,6 @@ public class MyFuliBitmapUtil
         options.inSampleSize=2;//原图的4分之1
         return options;
     }
-
     /***
      * 外部缓存设置
      */

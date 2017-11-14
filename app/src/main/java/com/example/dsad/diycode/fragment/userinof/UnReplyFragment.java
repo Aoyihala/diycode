@@ -34,10 +34,11 @@ public class UnReplyFragment extends Fragment {
     private List<android.app.Notification> notifica_list = new ArrayList<>();
     private NotificationAdpter no_adpter;
 
+    /**
     public UnReplyFragment(List<com.gcssloop.diycode_sdk.api.notifications.bean.Notification> allnotification) {
         this.allnotification = allnotification;
     }
-
+**/
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

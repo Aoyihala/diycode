@@ -22,16 +22,18 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.dsad.diycode.appliction.MyApplication;
 import com.example.dsad.diycode.base.RequsetActivity;
+import com.example.dsad.diycode.bean.PicInterface;
+import com.example.dsad.diycode.bean.PicStory;
 import com.example.dsad.diycode.fragment.NewsFragment;
 import com.example.dsad.diycode.fragment.SiteFragment;
 import com.example.dsad.diycode.fragment.TopicFragment;
 import com.example.dsad.diycode.utils.DataCache;
 import com.example.dsad.diycode.utils.ImagReplace;
+import com.example.dsad.diycode.utils.RetrofitUtil;
 import com.example.dsad.diycode.utils.UiUtlis;
-import com.example.dsad.diycode.utils.imgLoader.MyFuliBitmapUtil;
-import com.gcssloop.diycode_sdk.api.base.bean.Node;
 import com.gcssloop.diycode_sdk.api.user.bean.UserDetail;
 import com.gcssloop.diycode_sdk.api.user.event.GetMeEvent;
 
@@ -44,6 +46,8 @@ import java.util.List;
 import at.markushi.ui.ActionView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeActivity extends RequsetActivity {
     @Bind(R.id.btn_home_menu)
@@ -62,22 +66,21 @@ public class HomeActivity extends RequsetActivity {
     FloatingActionButton btnHomeaddTopic;
     @Bind(R.id.app_home_bar)
     AppBarLayout appHomeBar;
-    private List<Node> news_info;
     //请求状况描述
-    private String requset_discreable;
     private List<Fragment> allfragment = new ArrayList<>();
     private List<String> top_titles = new ArrayList<>();
     private MyViewPagerAdpter main_adpter;
     private ImageView img_userHead;
     private TextView tv_username;
     private TextView tv_userword;
+    private ImageView left_menubg;
     private RelativeLayout re_laytive;
     private UserDetail user_info;
-    private MyFuliBitmapUtil imgview_util;
     private DataCache mCache;
     private TopicFragment topic_f;
     private NewsFragment news_f;
     private SiteFragment site_f;
+    private PicInterface picInterface;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,12 +113,15 @@ public class HomeActivity extends RequsetActivity {
             case R.id.action_notfication:
                 startActivity(UserReplyActivity.class, false);
                 break;
+            case R.id.action_home_setting:
+                startActivity(SettingActivity.class,false);
+                break;
         }
         return true;
     }
 
     public void getTitles() {
-        top_titles = UiUtlis.getViewPagerTitle();
+        top_titles = UiUtlis.getViewPagerTitle(R.array.titles);
     }
 
     private void inintfragment()
@@ -148,8 +154,21 @@ public class HomeActivity extends RequsetActivity {
         tv_username = navHomeLeftmenu.getHeaderView(0).findViewById(R.id.tv_left_username);
         tv_userword = navHomeLeftmenu.getHeaderView(0).findViewById(R.id.tv_left_userword);
         re_laytive = navHomeLeftmenu.getHeaderView(0).findViewById(R.id.rela_left_layout);
+        left_menubg = navHomeLeftmenu.getHeaderView(0).findViewById(R.id.img_leftmenu_background);
         //初始化id完毕
+        picInterface=RetrofitUtil.getInstance().getRetrofit().create(PicInterface.class);
+        picInterface.getpicstory().enqueue(new Callback<PicStory>() {
+            @Override
+            public void onResponse(retrofit2.Call<PicStory> call, Response<PicStory> response) {
+                Glide.with(getApplicationContext()).load(response.body().getLink())
+                  .into(left_menubg);
+            }
+            @Override
+            public void onFailure(retrofit2.Call<PicStory> call, Throwable t) {
 
+            }
+        });
+        //加载背景图片
         re_laytive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -197,7 +216,7 @@ public class HomeActivity extends RequsetActivity {
                 switch (item.getItemId()) {
                     case R.id.action_mytie:
                         //我的话题
-                        if (user_info == null) {
+                        if (!MyApplication.getmDiycode().isLogin()) {
                             startActivity(LoginActivity.class, false);
                         } else {
                             startActivity(MyTopicActivity.class, false);
@@ -205,7 +224,7 @@ public class HomeActivity extends RequsetActivity {
                         break;
                     case R.id.action_myfavorite:
                         //我的收藏
-                        if (user_info == null) {
+                        if (!MyApplication.getmDiycode().isLogin()) {
                             startActivity(LoginActivity.class, false);
                         } else {
                             startActivity(MyFavoriteActivity.class, false);
@@ -219,9 +238,12 @@ public class HomeActivity extends RequsetActivity {
                         break;
                     case R.id.action_setting:
                         //设置
-                        startActivity(SettingActivity.class, false);
+                        startActivity(SettingActivity.class,false);
                         break;
-
+                    case R.id.action_nodeselect:
+                        //节点选择
+                        startActivity(NodeActivity.class,false);
+                        break;
                 }
                 return true;
             }
@@ -305,13 +327,13 @@ public class HomeActivity extends RequsetActivity {
     }
 
     private void loadmenudata() {
-        imgview_util = new MyFuliBitmapUtil();
         user_info = mCache.getMe();
         if (user_info != null && MyApplication.getmDiycode().isLogin()) {
             tv_userword.setText(user_info.getTagline());
             tv_username.setText(user_info.getName());
             img_userHead.setVisibility(View.VISIBLE);
-            imgview_util.display(ImagReplace.getImageUrl(user_info.getAvatar_url()), img_userHead);
+            Glide.with(MyApplication.getmContext()).load(ImagReplace.getImageUrl(user_info.getAvatar_url()))
+                    .into(img_userHead);
         } else {
             tv_username.setText("点击登录");
             tv_userword.setText("");

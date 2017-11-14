@@ -45,7 +45,8 @@
         android:id="@+id/btn_home_addtopic"
         app:layout_anchor="@id/parent_view"
         android:src="@mipmap/ic_add_white"
-        app:layout_anchorGravity="bottom|center"
+        android:layout_marginRight="15dp"
+        app:layout_anchorGravity="bottom|right"
         android:layout_marginBottom="20dp"
         android:layout_width="55dp"
         android:layout_height="55dp" />

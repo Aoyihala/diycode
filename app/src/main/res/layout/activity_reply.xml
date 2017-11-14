@@ -14,12 +14,6 @@
         android:background="@color/colorAppTheme"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <at.markushi.ui.ActionView
-            android:id="@+id/btn_reply_back"
-            app:av_action="back"
-            app:av_color="@color/colorMenuBtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp" />
         <TextView
             android:text="回复"
             android:layout_gravity="center"

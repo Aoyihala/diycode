@@ -61,6 +61,12 @@ public class TopicFragment extends BaseFragment
     {
         MyApplication.getmDiycode().getTopicsList(type_map.get(page),null,page,count);
     }
+
+    @Override
+    protected boolean setNotRefresh() {
+        return true;
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void getTopicList(GetTopicsListEvent eva)
     {

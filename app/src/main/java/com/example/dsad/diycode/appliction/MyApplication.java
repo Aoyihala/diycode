@@ -1,12 +1,10 @@
 package com.example.dsad.diycode.appliction;
-
 import android.app.Application;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-
 import com.example.dsad.diycode.R;
 import com.example.dsad.diycode.UserReplyActivity;
 import com.example.dsad.diycode.api.DiyCodeApi;
@@ -14,21 +12,15 @@ import com.example.dsad.diycode.utils.DataCache;
 import com.gcssloop.diycode_sdk.api.Diycode;
 import com.gcssloop.diycode_sdk.api.notifications.bean.Notification;
 import com.gcssloop.diycode_sdk.api.notifications.event.GetNotificationsListEvent;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.http.GET;
-
 /**
  * 全局的appliction域
  * Created by dsad on 2017/9/20.
  */
-
 public class MyApplication extends Application
 {   private static Diycode mDiycode;
     private static Context mContext;

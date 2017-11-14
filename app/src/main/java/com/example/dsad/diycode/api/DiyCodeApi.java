@@ -32,4 +32,12 @@ public class DiyCodeApi
     public static final String GET_USERCOLLECTION="user";
     //保存用户notifiactio状态的key
     public static final String GET_USERNOTIFICTION="allnotifi";
+    //话题拼接
+    public static final String TOPIC_URL="https://www.diycode.cc/topics/";
+    //必应最新操作
+    public static final String BING_PIC="https://api.dujin.org/bing/1366.php";
+    //注册地址
+    public static final String REGISTER="https://www.diycode.cc/account/sign_up";
+    //还带小故事
+    public static final String MEITU = "http://tu.ihuan.me/api/me_all_story_json/";
 }

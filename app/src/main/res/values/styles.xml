@@ -30,8 +30,12 @@
     </style>
     <style name="UserInfoTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/TabTextSelectColor</item>
+        <item name="colorPrimaryDark">@color/TabTextSelectColor</item>
         <item name="colorAccent">@color/colorMenuBtn</item>
+    </style>
+    <!-- 提供白色的toolbar返回按钮 -->
+    <style name="ToolbarHome" parent="HomeAppThem">
+        <item name="android:colorControlNormal">@color/colorAppTheme</item>
     </style>
 </resources>

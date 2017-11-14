@@ -149,6 +149,7 @@ public class UserInfoActivity extends RequsetActivity {
         titles = UiUtlis.getViewPagerTitle(R.array.usertitle);
     }
 
+<<<<<<< HEAD
     //---------------------------请求----------------------------------------
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void getUser(GetUserEvent eva) {
@@ -156,6 +157,18 @@ public class UserInfoActivity extends RequsetActivity {
             nowuser = eva.getBean();
             //拆分出title
             cofiguserinfo();
+=======
+        //如果是当前用户
+        if (MyApplication.getmDiycode().isLogin()&&login_name.equals(mCache.getMe().getLogin()))
+        {
+            user_info = mCache.getMe();
+            MyApplication.getmDiycode().getUser(login_name);
+        }
+        else
+        {
+            //请求用户详细信息
+            MyApplication.getmDiycode().getUser(login_name);
+>>>>>>> origin/master
         }
     }
 

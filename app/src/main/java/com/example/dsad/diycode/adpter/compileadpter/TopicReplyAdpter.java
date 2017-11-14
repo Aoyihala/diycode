@@ -8,7 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+<<<<<<< HEAD
 import com.bumptech.glide.Glide;
+=======
+import com.example.dsad.diycode.ImageActivity;
+>>>>>>> origin/master
 import com.example.dsad.diycode.R;
 import com.example.dsad.diycode.ReplyActivity;
 import com.example.dsad.diycode.UserInfoActivity;
@@ -17,8 +21,17 @@ import com.example.dsad.diycode.utils.ImagReplace;
 import com.example.dsad.diycode.utils.TimeUtil;
 import com.gcssloop.diycode_sdk.api.topic.bean.TopicReply;
 import com.gcssloop.diycode_sdk.api.user.bean.User;
+<<<<<<< HEAD
 import com.zzhoujay.richtext.RichText;
 import com.zzhoujay.richtext.callback.OnImageClickListener;
+=======
+import com.zzhoujay.richtext.LinkHolder;
+import com.zzhoujay.richtext.RichText;
+import com.zzhoujay.richtext.callback.LinkFixCallback;
+import com.zzhoujay.richtext.callback.OnImageClickListener;
+import com.zzhoujay.richtext.callback.OnImageLongClickListener;
+import com.zzhoujay.richtext.callback.OnUrlClickListener;
+>>>>>>> origin/master
 
 import java.util.List;
 
@@ -52,9 +65,13 @@ public class TopicReplyAdpter extends RecyclerView.Adapter<TopicReplyAdpter.Topi
     public void onBindViewHolder(final TopicReplyViewHolder holder, final int position) {
         final TopicReply oneitem = data.get(position);
         final User user = oneitem.getUser();
+<<<<<<< HEAD
         //util.display(ImagReplace.getImageUrl(user.getAvatar_url()), holder.imgTopicinfoCommenthead);
         Glide.with(MyApplication.getmContext()).load(ImagReplace.getImageUrl(user.getAvatar_url()))
                 .into(holder.imgTopicinfoCommenthead);
+=======
+        util.display(ImagReplace.getImageUrl(user.getAvatar_url()), holder.imgTopicinfoCommenthead);
+>>>>>>> origin/master
         holder.tvTopicinfoCommentusername.setText(user.getName());
         //holder.tvTopicinfoCommentcontent.loadDataWithBaseURL(null, oneitem.getBody_html(), "text/html", "utf-8", null);
         //holder.tvTopicinfoCommentcontent.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
@@ -65,6 +82,7 @@ public class TopicReplyAdpter extends RecyclerView.Adapter<TopicReplyAdpter.Topi
                 {
                     @Override
                     public void imageClicked(List<String> imageUrls, int position) {
+<<<<<<< HEAD
                         /*这里把url传到接口,方便接口实现的时候获取
                         Intent intent = new Intent(MyApplication.getmContext(), ImageActivity.class);
                         intent.putExtra("imgurl",imageUrls.get(position));
@@ -74,6 +92,11 @@ public class TopicReplyAdpter extends RecyclerView.Adapter<TopicReplyAdpter.Topi
                         {
                             listener.onImgClick(imageUrls.get(position));
                         }
+=======
+                        Intent intent = new Intent(MyApplication.getmContext(), ImageActivity.class);
+                        intent.putExtra("imgurl",imageUrls.get(position));
+                        MyApplication.getmContext().startActivity(intent);
+>>>>>>> origin/master
                     }
                 })
                 .into(holder.tvTopicinfoCommentcontent);

@@ -43,9 +43,14 @@
                     android:layout_height="wrap_content">
                 </android.support.v7.widget.RecyclerView>
             </RelativeLayout>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     </android.support.v4.widget.NestedScrollView>
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/btn_topinfo_reply"
+                android:visibility="gone"
                 android:layout_alignParentBottom="true"
                 app:layout_anchor="@id/recycler_topicinfo_view"
                 app:layout_anchorGravity="bottom|right"

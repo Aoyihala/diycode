@@ -7,11 +7,21 @@
     android:layout_width="match_parent"
     android:layout_height="180dp">
     <ImageView
+<<<<<<< HEAD
         android:scaleType="centerCrop"
         android:background="@color/colorMenuBtn"
         android:id="@+id/img_leftmenu_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+=======
+        android:id="@+id/img_leftmenu_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <View
+        android:background="#f1000000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+>>>>>>> origin/master
 <de.hdodenhof.circleimageview.CircleImageView
     android:id="@+id/img_left_myhead"
     android:layout_width="60dp"

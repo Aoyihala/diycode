@@ -38,6 +38,9 @@ public class DiyCodeApi
     public static final String BING_PIC="https://api.dujin.org/bing/1366.php";
     //注册地址
     public static final String REGISTER="https://www.diycode.cc/account/sign_up";
+<<<<<<< HEAD
     //还带小故事
     public static final String MEITU = "http://tu.ihuan.me/api/me_all_story_json/";
+=======
+>>>>>>> origin/master
 }

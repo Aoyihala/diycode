@@ -23,6 +23,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+<<<<<<< HEAD
+=======
+import com.example.dsad.diycode.api.DiyCodeApi;
+>>>>>>> origin/master
 import com.example.dsad.diycode.appliction.MyApplication;
 import com.example.dsad.diycode.base.RequsetActivity;
 import com.example.dsad.diycode.bean.PicInterface;
@@ -156,6 +160,7 @@ public class HomeActivity extends RequsetActivity {
         re_laytive = navHomeLeftmenu.getHeaderView(0).findViewById(R.id.rela_left_layout);
         left_menubg = navHomeLeftmenu.getHeaderView(0).findViewById(R.id.img_leftmenu_background);
         //初始化id完毕
+<<<<<<< HEAD
         picInterface=RetrofitUtil.getInstance().getRetrofit().create(PicInterface.class);
         picInterface.getpicstory().enqueue(new Callback<PicStory>() {
             @Override
@@ -168,6 +173,9 @@ public class HomeActivity extends RequsetActivity {
 
             }
         });
+=======
+        Glide.with(getApplicationContext()).load(DiyCodeApi.BING_PIC).into(left_menubg);
+>>>>>>> origin/master
         //加载背景图片
         re_laytive.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -239,10 +247,13 @@ public class HomeActivity extends RequsetActivity {
                     case R.id.action_setting:
                         //设置
                         startActivity(SettingActivity.class,false);
+<<<<<<< HEAD
                         break;
                     case R.id.action_nodeselect:
                         //节点选择
                         startActivity(NodeActivity.class,false);
+=======
+>>>>>>> origin/master
                         break;
                 }
                 return true;

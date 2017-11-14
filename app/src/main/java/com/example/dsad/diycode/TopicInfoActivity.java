@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -30,11 +31,16 @@ import com.gcssloop.diycode_sdk.api.topic.bean.TopicContent;
 import com.gcssloop.diycode_sdk.api.topic.bean.TopicReply;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicEvent;
 import com.gcssloop.diycode_sdk.api.topic.event.GetTopicRepliesListEvent;
+<<<<<<< HEAD
 import com.gcssloop.diycode_sdk.api.user.bean.User;
 import com.gcssloop.diycode_sdk.api.user.event.FollowUserEvent;
 import com.gcssloop.diycode_sdk.api.user.event.GetUserFollowerListEvent;
 import com.gcssloop.diycode_sdk.api.user.event.UnFollowUserEvent;
 import com.zzhoujay.richtext.RichText;
+=======
+import com.zzhoujay.richtext.RichText;
+import com.zzhoujay.richtext.callback.Callback;
+>>>>>>> origin/master
 import com.zzhoujay.richtext.callback.OnImageClickListener;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -68,10 +74,13 @@ public class TopicInfoActivity extends RequsetActivity {
     NestedScrollView scrollTopicinfoView;
     @Bind(R.id.tv_topicinfo_content)
     TextView tvTopicinfoContent;
+<<<<<<< HEAD
     @Bind(R.id.tv_topicinfo_follow)
     TextView tvTopicinfoFollow;
     @Bind(R.id.tv_topicinfo_replycount)
     TextView tvTopicinfoReplycount;
+=======
+>>>>>>> origin/master
     private TopicContent topic_data;
     //话题元
     private Topic nowtopic;
@@ -140,9 +149,12 @@ public class TopicInfoActivity extends RequsetActivity {
                 Uri myBlogUri = Uri.parse(DiyCodeApi.TOPIC_URL + topic_data.getId());
                 Intent intent = new Intent(Intent.ACTION_VIEW, myBlogUri);
                 startActivity(intent);
+<<<<<<< HEAD
                 break;
             case android.R.id.home:
                 finish();
+=======
+>>>>>>> origin/master
                 break;
 
         }
@@ -190,6 +202,7 @@ public class TopicInfoActivity extends RequsetActivity {
                 startActivity(intent);
             }
         });
+<<<<<<< HEAD
         //回复里的图片浏览事件
         reoly_adpter.setOnImageClickListener(new TopicReplyAdpter.onclickImageListener() {
             @Override
@@ -217,6 +230,8 @@ public class TopicInfoActivity extends RequsetActivity {
             }
         });
 
+=======
+>>>>>>> origin/master
     }
 
     public void getTopicData() {
@@ -249,16 +264,23 @@ public class TopicInfoActivity extends RequsetActivity {
     private void configcontent() {
         tvTopicinfoTime.setText(TimeUtil.computePastTime(topic_data.getCreated_at()));
         tvTopicinfoUsername.setText(topic_data.getUser().getName());
+<<<<<<< HEAD
         //bitmaputl.display(ImagReplace.getImageUrl(topic_data.getUser().getAvatar_url()), imgTopicinfoUserhead);
         Glide.with(MyApplication.getmContext()).load(ImagReplace.getImageUrl(topic_data.getUser().getAvatar_url()))
                 .into(imgTopicinfoUserhead);
+=======
+        bitmaputl.display(ImagReplace.getImageUrl(topic_data.getUser().getAvatar_url()), imgTopicinfoUserhead);
+>>>>>>> origin/master
         //topicContent.setMarkDownText(topic_data.getBody());
         //关闭硬件加速
         //tvTopicinfoContent.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         RichText.fromMarkdown(topic_data.getBody())
                 //不加载图片
                 //.noImage(true)
+<<<<<<< HEAD
                 .clickable(true)
+=======
+>>>>>>> origin/master
                 .autoFix(true)
                 .imageClick(new OnImageClickListener() {
                     @Override
@@ -270,8 +292,11 @@ public class TopicInfoActivity extends RequsetActivity {
                     }
                 })
                 .into(tvTopicinfoContent);
+<<<<<<< HEAD
         tvTopicinfoReplycount.setText(topic_data.getReplies_count()+"条回复");
         getUserinfo();
+=======
+>>>>>>> origin/master
     }
 
     //------------------------------请求内容部分-----------------------------------------------------
@@ -339,6 +364,7 @@ public class TopicInfoActivity extends RequsetActivity {
         reoly_adpter.notifyDataSetChanged();
     }
 
+<<<<<<< HEAD
     private void cofigtext()
     {
         if (user_followlist!=null&&user_followlist.size()>0)
@@ -360,6 +386,8 @@ public class TopicInfoActivity extends RequsetActivity {
             tvTopicinfoFollow.setVisibility(View.GONE);
         }
     }
+=======
+>>>>>>> origin/master
     public void getUserCollect() {
         data_cache = new DataCache(getApplicationContext());
         //获取用户收藏然后与当前topic判断

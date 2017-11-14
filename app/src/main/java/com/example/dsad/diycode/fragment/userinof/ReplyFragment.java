@@ -37,7 +37,12 @@ public class ReplyFragment extends Fragment {
     public ReplyFragment(List<com.gcssloop.diycode_sdk.api.notifications.bean.Notification> allnotification)
     {
         this.allnotification = allnotification;
+<<<<<<< HEAD
     }**/
+=======
+    }
+     **/
+>>>>>>> origin/master
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

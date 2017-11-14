@@ -91,6 +91,15 @@ public class MyTopicActivity extends RequsetActivity implements SwipeRefreshLayo
     }
 
     private void ininitsession() {
+<<<<<<< HEAD
+=======
+        btnMyfavoriteBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+>>>>>>> origin/master
     }
 
     public void getuser() {

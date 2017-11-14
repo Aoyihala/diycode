@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+<<<<<<< HEAD
 import android.view.MenuItem;
+=======
+>>>>>>> origin/master
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -37,6 +40,10 @@ public class ImageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_image);
         ButterKnife.bind(this);
         inintdata();
+<<<<<<< HEAD
+=======
+        inintsession();
+>>>>>>> origin/master
     }
     private void inintdata() {
         setSupportActionBar(topImageBar);
@@ -46,6 +53,7 @@ public class ImageActivity extends AppCompatActivity {
         final PhotoViewAttacher attacher = new PhotoViewAttacher(imgImageBg);
         url = getIntent().getStringExtra("imgurl");
         Glide.with(getApplicationContext()).load(url)
+<<<<<<< HEAD
              .listener(new RequestListener<Drawable>() {
                  @Override
                  public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
@@ -71,5 +79,27 @@ public class ImageActivity extends AppCompatActivity {
             finish();
         }
         return true;
+=======
+                .listener(new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                        //失败
+                        return false;
+                    }
+                    @Override
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                        //成功
+                        progressImageBar.setVisibility(View.GONE);
+                        //返回false往下走
+                        attacher.update();
+                        return false;
+                    }
+                })
+                .into(imgImageBg);
+    }
+    private void inintsession()
+    {
+
+>>>>>>> origin/master
     }
 }

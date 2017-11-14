@@ -50,6 +50,7 @@
         <activity
             android:name=".UserReplyActivity"
             android:theme="@style/NotifiactionTheme" />
+<<<<<<< HEAD
         <activity
             android:name=".ReplyActivity"
             android:theme="@style/HomeAppThem" />
@@ -63,6 +64,13 @@
             android:name=".NodeActivity"
             android:theme="@style/HomeAppThem" />
         <activity android:name=".NodeContentActivity"
+=======
+        <activity android:name=".ReplyActivity"
+            android:theme="@style/HomeAppThem"/>
+        <activity android:name=".AddTopicActivity"
+            android:theme="@style/HomeAppThem"/>
+        <activity android:name=".ImageActivity"
+>>>>>>> origin/master
             android:theme="@style/HomeAppThem"
             />
     </application>

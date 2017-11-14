@@ -7,12 +7,18 @@ diycode是一个技术交流基地,个人很喜欢,里面大牛很多,加上该�
 ### 2017.10.31
 1.大幅优化了浏览帖子的流畅度 具体细节:使用了RichText加载MarkDown文体,比之前用webview加载完成后,流程度变得更高,在模拟器上体验明显<br/>
 2.增加了大图浏览 具体细节:在帖子中的图片点击后可以浏览 自由缩放 随后的下载功能下次加入
+### 2017.11.15
+1.个人信息页面改版
+2.首页帖子Ui改版
+3.图片错位问题解决
+4.新增加关注功能
+改版效果如下:
+---
 ## 简介
 Diycode 社区客户端，可以更方便的在手机上查看社区信息。由于目前sdk功能尚未完善，还存在一些已知或未知的bug,所以暂时停止开发。
 
-本客户端开发过程是完全开放的。想查看源代码请移步:https://github.com/Aoyihala/diycode/
-
-使用了MarkDownView代替WebView加载有markdown语法的文本,项目地址:https://github.com/mukeshsolanki/MarkdownView-Android
+本客户端开发过程是完全开放的。
+（过时）使用了MarkDownView代替WebView加载有markdown语法的文本,项目地址:https://github.com/mukeshsolanki/MarkdownView-Android
 
 ## 已实现功能
 ----------------------------
@@ -32,7 +38,7 @@ Diycode 社区客户端，可以更方便的在手机上查看社区信息。由
 ---
 >8.查看消息通知
 ---
-## 预览
+## 基本预览
 -----------------------------
 ![Image text](https://raw.githubusercontent.com/Aoyihala/img/master/diycode/home.png)
 ----

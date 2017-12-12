@@ -12,6 +12,7 @@ diycode是一个技术交流基地,个人很喜欢,里面大牛很多,加上该�
 5.页面切换动画<br/>
 6.帖子页面右划关闭帖子<br/>
 7.增加动画连贯性,合理性<br/>
+8.增加主题换色功能(现正考虑是否是只设置个夜间模式和日间模式)<br/>
 #### 为什么要用PureMvc?
 1.PureMvc是结合了MVP和MVC之间的特点形成的,有十年的历史了,PureMvc项目链接https://www.sogou.com/link?url=TiECA-reDTCFVZteGz9ECIEIV04mNK7t<br/>
 ### 2017.10.31

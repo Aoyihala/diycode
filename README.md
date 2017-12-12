@@ -3,7 +3,17 @@ diycode是一个技术交流基地,个人很喜欢,里面大牛很多,加上该�
 # 说在前头
 感谢二次元魔法师GcsSloop提供的diycode的sdk,该sdk是对社区api的再次封装,sdk已开源https://github.com/GcsSloop/diycode-sdk
 本项目仅限交流和学习！
-# 更新
+# 更新（工作原因停止更新）
+### 2017.12.13
+1.项目重构,使用PureMvc框架来进行解耦,MVC设计模式中,Modle和View层高度耦合,造成代码复制,维护性低。<br/>
+2.项目UI大改变,解决图片不清晰的问题(图标)<br/>
+3.设置借节流选项,为用户节约流量<br/>
+4.完善所有发帖功能,提升手机的功能性<br/>
+5.页面切换动画<br/>
+6.帖子页面右划关闭帖子<br/>
+7.增加动画连贯性,合理性<br/>
+#### 为什么要用PureMvc?
+1.PureMvc是结合了MVP和MVC之间的特点形成的,有十年的历史了,PureMvc项目链接https://www.sogou.com/link?url=TiECA-reDTCFVZteGz9ECIEIV04mNK7t<br/>
 ### 2017.10.31
 1.大幅优化了浏览帖子的流畅度 具体细节:使用了RichText加载MarkDown文体,比之前用webview加载完成后,流程度变得更高,在模拟器上体验明显<br/>
 2.增加了大图浏览 具体细节:在帖子中的图片点击后可以浏览 自由缩放 随后的下载功能下次加入

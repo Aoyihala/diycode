@@ -1,5 +1,6 @@
 # diycode,技术咨询集中地客户端
 diycode是一个技术交流基地,个人很喜欢,里面大牛很多,加上该社区推出了公开api所以就想写着一个客户端
+diycode is community for technologiers.it offer the api to use.
 # 说在前头
 感谢二次元魔法师GcsSloop提供的diycode的sdk,该sdk是对社区api的再次封装,sdk已开源https://github.com/GcsSloop/diycode-sdk
 本项目仅限交流和学习！
@@ -71,4 +72,5 @@ Diycode 社区客户端，可以更方便的在手机上查看社区信息。由
 ---
 > 3.帖子详情:Coordinatorlayout+MarkDownView展示
 ---
-
+ 
+ 

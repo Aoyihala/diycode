@@ -4,7 +4,7 @@ diycode is community for technologiers.it offer the api to use.
 # 说在前头
 感谢二次元魔法师GcsSloop提供的diycode的sdk,该sdk是对社区api的再次封装,sdk已开源https://github.com/GcsSloop/diycode-sdk
 本项目仅限交流和学习！
-# 更新（工作原因停止更新）(预计开坑时间 2017年12月15日)
+# 更新（工作原因停止更新）(预计开坑时间 2018年？？？？？)(延长:预计年后,在下工作繁忙)
 ### 2017.12.13
 1.项目重建,使用PureMvc框架来进行解耦,MVC设计模式中,Modle和View层高度耦合,造成代码复制,维护性低。<br/>
 2.项目UI大改变,解决图片不清晰的问题(图标)<br/>
